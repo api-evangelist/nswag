@@ -5,9 +5,9 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - SDKs
-  - Code Generation
   - .NET
+  - Code Generation
+  - SDKs
   - TypeScript
 url: >-
   https://raw.githubusercontent.com/api-evangelist/nswag/refs/heads/main/apis.yml
@@ -21,9 +21,9 @@ apis:
       NSwag is an open source .NET toolchain for generating C# and TypeScript API clients and Swagger/OpenAPI specifications from ASP.NET controllers and vice versa.
     humanURL: https://github.com/RicoSuter/NSwag
     tags:
-      - SDKs
-      - Code Generation
       - .NET
+      - Code Generation
+      - SDKs
       - TypeScript
     properties:
       - type: Documentation
