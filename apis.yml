@@ -22,9 +22,9 @@ apis:
     humanURL: https://github.com/RicoSuter/NSwag
     tags:
       - SDKs
-  - Code Generation
-  - .NET
-  - TypeScript
+      - Code Generation
+      - .NET
+      - TypeScript
     properties:
       - type: Documentation
         url: https://github.com/RicoSuter/NSwag/wiki
