@@ -33,16 +33,16 @@ apis:
     properties:
       - type: Documentation
         url: https://github.com/RicoSuter/NSwag/wiki
-      - type: Getting Started
+      - type: GettingStarted
         url: https://github.com/RicoSuter/NSwag/wiki/Getting-Started
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/RicoSuter/NSwag
 common:
   - type: Website
     url: https://github.com/RicoSuter/NSwag
   - type: Documentation
     url: https://github.com/RicoSuter/NSwag/wiki
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/RicoSuter/NSwag
 maintainers:
   - FN: Kin Lane
