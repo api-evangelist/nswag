@@ -1,9 +1,18 @@
 aid: nswag
 name: NSwag
 description: >-
-  NSwag is an open source .NET toolchain for generating C# and TypeScript API
-  clients and Swagger/OpenAPI specifications from ASP.NET controllers and vice
-  versa.
+  NSwag is the Swagger/OpenAPI toolchain for .NET, ASP.NET Core and TypeScript,
+  written in C# and maintained by Rico Suter under an MIT licence. It runs the
+  contract in both directions: generating Swagger 2.0 and OpenAPI 3.0 documents
+  from ASP.NET (Core) controllers, Web API assemblies and plain .NET types, and
+  generating C# clients, ASP.NET Web API controllers and TypeScript clients back
+  out of those documents. It combines what Swashbuckle and AutoRest do
+  separately into a single toolchain, which is how it avoids the incompatibility
+  seams between the two and gets better fidelity on inheritance, enums and
+  reference handling via NJsonSchema. NSwag operates no hosted API of its own —
+  it is consumed as NuGet packages, MSBuild targets, an npm-distributed CLI and
+  NSwagStudio, a Windows GUI that authors and executes the same nswag.json
+  configuration document the CLI runs.
 type: Index
 accessModel:
   pricing: freemium
@@ -20,21 +29,30 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nswag.png
 tags:
   - .NET
+  - ASP.NET Core
+  - C#
   - Code Generation
+  - Developer Tools
+  - JSON Schema
+  - Open Source
   - OpenAPI
   - SDKs
+  - Swagger
   - TypeScript
 url: https://raw.githubusercontent.com/api-evangelist/nswag/refs/heads/main/apis.yml
 created: '2026-03-25'
-modified: '2026-04-28'
+modified: '2026-08-06'
 specificationVersion: '0.19'
 apis:
   - aid: nswag:nswag
     name: NSwag
     description: >-
-      NSwag is an open source .NET toolchain for generating C# and TypeScript
-      API clients and Swagger/OpenAPI specifications from ASP.NET controllers
-      and vice versa.
+      NSwag is an open source .NET toolchain for generating C# and TypeScript API
+      clients and Swagger/OpenAPI specifications from ASP.NET controllers and
+      vice versa. It ships as NuGet packages, MSBuild targets, a cross-platform
+      CLI (nswag.exe / dotnet-nswag, also distributed on npm) and the NSwagStudio
+      Windows GUI. There is no hosted NSwag service — the toolchain runs on the
+      consumer's own machine or build agent.
     humanURL: https://github.com/RicoSuter/NSwag
     tags:
       - .NET
@@ -49,13 +67,70 @@ apis:
         url: https://github.com/RicoSuter/NSwag/wiki/Getting-Started
       - type: GitHubRepository
         url: https://github.com/RicoSuter/NSwag
+      - type: CLI
+        url: cli/nswag-cli.yml
 common:
   - type: Website
     url: https://github.com/RicoSuter/NSwag
   - type: Documentation
     url: https://github.com/RicoSuter/NSwag/wiki
+  - type: GettingStarted
+    url: https://github.com/RicoSuter/NSwag/wiki/Getting-Started
   - type: GitHubOrganization
     url: https://github.com/RicoSuter/NSwag
+  - type: SourceCode
+    url: https://github.com/RicoSuter/NSwag
+  - type: Roadmap
+    url: https://github.com/RicoSuter/NSwag/wiki/Roadmap
+  - type: Support
+    url: https://github.com/RicoSuter/NSwag/issues
+  - type: Community
+    url: https://discord.gg/BxQNy25WF6
+  - type: License
+    url: https://github.com/RicoSuter/NSwag/blob/master/LICENSE.md
+  - type: Packages
+    url: packages/nswag-packages.yml
+  - type: SDKs
+    url: packages/nswag-packages.yml
+  - type: CLI
+    url: cli/nswag-cli.yml
+  - type: ChangeLog
+    url: changelog/nswag-changelog.yml
+  - type: Lifecycle
+    url: lifecycle/nswag-lifecycle.yml
+  - type: Conformance
+    url: conformance/nswag-conformance.yml
+  - type: DomainSecurity
+    url: security/nswag-domain-security.yml
+  - type: LLMsTxt
+    url: llms/nswag-llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-06'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: covered
+  reason: ''
+  detail: >-
+    NSwag is a build-time toolchain with no hosted API, so there is no OpenAPI,
+    AsyncAPI, MCP or agent-card surface to harvest — the enrichable surface is
+    its distribution and release posture, and that was captured in full
+    (19 first-party packages across NuGet/npm/Chocolatey, the CLI command
+    surface, 12 dated releases, lifecycle, standards conformance). Two real gaps
+    were recorded rather than papered over: the project publishes no SECURITY.md
+    or security.txt, and its declared homepage NSwag.org no longer serves the
+    site.
+  evidence:
+    - url: https://github.com/RicoSuter/NSwag/wiki/CommandLine
+      status: 200
+    - url: https://nswag.org/
+      status: 0
+    - url: http://nswag.org/
+      status: 403
+    - url: https://github.com/RicoSuter/NSwag/security/policy
+      status: 200
+  checked: '2026-08-06'
