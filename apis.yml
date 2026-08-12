@@ -70,6 +70,10 @@ apis:
       - type: CLI
         url: cli/nswag-cli.yml
 common:
+  - type: Releases
+    url: https://github.com/RicoSuter/NSwag/releases
+  - type: ContributionGuide
+    url: https://github.com/RicoSuter/NSwag/blob/master/CONTRIBUTING.md
   - type: Website
     url: https://github.com/RicoSuter/NSwag
   - type: Documentation
