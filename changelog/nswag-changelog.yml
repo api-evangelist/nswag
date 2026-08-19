@@ -1,0 +1,128 @@
+generated: '2026-08-06'
+method: searched
+source: https://github.com/RicoSuter/NSwag/releases
+description: >-
+  NSwag publishes its change log as GitHub Releases on RicoSuter/NSwag — one
+  dated, tagged release per version carrying hand-written and generated notes.
+  The CHANGELOG.md file at the repository root is a stub: it stops at v11.3 and
+  only points back at the Releases page, so Releases is the live source of
+  truth. Every release title names the NJsonSchema version it bundles, because
+  NSwag's generated output is largely determined by that dependency — several of
+  the entries below are NSwag releases whose substance is an NJsonSchema bump.
+  Read from the GitHub Releases API on 2026-08-06.
+changelog_url: https://github.com/RicoSuter/NSwag/releases
+changelog_file: https://github.com/RicoSuter/NSwag/blob/master/CHANGELOG.md
+changelog_file_note: >-
+  Stale — last entry is "Release v11.3"; every line simply links to the matching
+  GitHub release tag.
+scheme: semver
+scheme_note: >-
+  Major.minor.patch, tagged vX.Y.Z. Majors are tracked as roadmap issues (v14 =
+  issue #2181). All NuGet packages, the npm wrapper and the Chocolatey package
+  ship on the same version line and are released together.
+current_version: 14.7.1
+current_version_date: '2026-04-20'
+bundled_njsonschema: 11.6.1
+cadence_note: >-
+  Irregular and maintainer-paced — 6 releases in the 14 months to 2026-04-20,
+  with gaps of 4-6 months (2024-11 to 2025-03, 2025-11 to 2026-04). No published
+  release schedule.
+entries:
+  - version: 14.7.1
+    date: '2026-04-20'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.7.1
+    njsonschema: 11.6.1
+    breaking: false
+    highlights:
+      - >-
+        Corrective release. The notes carry an IMPORTANT callout instructing
+        users to upgrade directly from v14.6.3 to v14.7.1 and skip v14.7.0.
+      - >-
+        Fixes the NJsonSchema v11.6.0 regression that silently dropped
+        nullability on `required T?` / `[JsonRequired] T?` DTO properties, which
+        made the generated OpenAPI/JSON Schema mark those properties
+        incorrectly.
+  - version: 14.7.0
+    date: '2026-04-08'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.7.0
+    njsonschema: 11.6.0
+    breaking: false
+    withdrawn: true
+    highlights:
+      - >-
+        Carries a CAUTION banner in its own release notes — "Do not use this
+        release — upgrade to v14.7.1 or later." Bundled the NJsonSchema v11.6.0
+        nullability regression.
+  - version: 14.6.3
+    date: '2025-11-20'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.6.3
+    njsonschema: 11.5.2
+    breaking: false
+    highlights:
+      - Moves to the final .NET 10 libraries/SDK, plus minor .NET 10 fixes.
+      - Package updates for CVE-2025-55315.
+      - nswag.js runtime-version detection fix in the npm wrapper.
+  - version: 14.6.2
+    date: '2025-11-05'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.6.2
+    njsonschema: 11.5.2
+    breaking: false
+    highlights:
+      - >-
+        Fixes an EnumValue regression introduced in v14.6.1 by adding a new
+        JsonLibraryVersion configuration setting (default 8.0).
+      - Command/UI updates and the .NET 10 SDK (RC2).
+  - version: 14.6.1
+    date: '2025-09-30'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.6.1
+    njsonschema: 11.5.1
+    breaking: false
+    highlights:
+      - Fixes binary operation result-type generation for the ASP.NET Core C# generator.
+  - version: 14.6.0
+    date: '2025-09-18'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.6.0
+    njsonschema: 11.5.0
+    breaking: true
+    breaking_changes:
+      - Minimum TypeScript output version raised to 4.3 (via NJsonSchema v11.5.0).
+    highlights:
+      - Adds .NET 10 support.
+      - Fixes TypeScript fetch client interface generation.
+  - version: 14.5.0
+    date: '2025-08-02'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.5.0
+    njsonschema: 11.4.0
+    breaking: false
+    highlights:
+      - Better support for reading YAML from a stream.
+      - Package cleanup to prefer framework-provided dependencies.
+      - GitHub Actions target moved to the .NET 9.0.2 SDK.
+  - version: 14.4.0
+    date: '2025-04-28'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.4.0
+    njsonschema: 11.3.2
+    breaking: false
+    highlights:
+      - Fixes optional-parameter ordering in generated TypeScript and C# clients.
+      - MSBuildProjectDirectory fallback added to ProjectDir resolution.
+      - Tolerates a missing schema in operation responses.
+  - version: 14.3.0
+    date: '2025-03-29'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.3.0
+    njsonschema: 11.2.0
+    breaking: false
+  - version: 14.2.0
+    date: '2024-11-19'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.2.0
+    breaking: false
+    highlights:
+      - .NET 9 support.
+  - version: 14.1.0
+    date: '2024-07-17'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.1.0
+    breaking: false
+  - version: 14.0.8
+    date: '2024-06-12'
+    url: https://github.com/RicoSuter/NSwag/releases/tag/v14.0.8
+    breaking: false

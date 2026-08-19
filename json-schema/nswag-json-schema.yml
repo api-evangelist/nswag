@@ -1,0 +1,37 @@
+generated: '2026-08-06'
+method: searched
+source: https://www.schemastore.org/nswag.json
+description: >-
+  NSwag's primary machine-readable interface is not an API contract — it has no
+  API — but the nswag.json / *.nswag configuration document that the CLI and
+  NSwagStudio both execute. NSwag itself publishes NO JSON Schema for that
+  document; the settings are documented only as prose and a sample JSON blob on
+  the wiki. The schema captured here is the community-maintained one from
+  SchemaStore, fetched verbatim on 2026-08-06. It is recorded for provenance and
+  is deliberately NOT wired as an NSwag-published artifact pointer, because it is
+  not NSwag's and it is out of date.
+schemas:
+  - file: nswag-configuration-document.schema.json
+    title: NSwag configuration document (nswag.json / *.nswag)
+    url: https://www.schemastore.org/nswag.json
+    fetched_url: https://json.schemastore.org/nswag.json
+    http_status: 200
+    bytes: 6443
+    dialect: http://json-schema.org/draft-04/schema#
+    publisher: SchemaStore (community)
+    official: false
+    stale: true
+    stale_note: >-
+      Uses the pre-v12 property names — swaggerGenerator, webApiToSwagger,
+      swaggerToCSharpClient, swaggerToTypeScriptClient, swaggerToCSharpController.
+      Current NSwag documents use documentGenerator / webApiToOpenApi /
+      openApiToCSharpClient / openApiToTypeScriptClient. Validating a modern
+      nswag.json against it will not describe the real surface.
+    documents: https://github.com/RicoSuter/NSwag/wiki/NSwag-Configuration-Document
+provider_gap: >-
+  NSwag should publish a first-party, current JSON Schema for nswag.json from the
+  NSwag.Commands settings model and reference it with $schema, so editors and
+  agents can validate a configuration document against the version of NSwag that
+  will execute it. Today the only schema in circulation is a stale third-party
+  copy, and API Evangelist is not going to author a replacement on the project's
+  behalf.

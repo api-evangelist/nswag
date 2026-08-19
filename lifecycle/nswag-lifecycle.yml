@@ -1,0 +1,98 @@
+generated: '2026-08-06'
+method: searched
+source: https://github.com/RicoSuter/NSwag/wiki/Roadmap
+description: >-
+  Versioning, deprecation and support posture for NSwag, read from the project's
+  own GitHub surface and wiki on 2026-08-06. NSwag is a maintainer-led MIT
+  open-source toolchain, not a hosted service: there is nothing to keep up, so
+  there is no status page, no SLA and no uptime commitment, and the operational
+  signals it does publish are a version line, a public roadmap, release notes,
+  and the issue tracker. The one lifecycle signal that matters most to consumers
+  is not stated as a policy at all — it lives in the release notes, where
+  v14.7.0 carries a "do not use this release" banner and v14.7.1 tells users to
+  upgrade past it.
+versioning:
+  scheme: semver
+  current: 14.7.1
+  current_date: '2026-04-20'
+  tag_form: vX.Y.Z
+  cadence: >-
+    Maintainer-paced and irregular — 6 releases in the 14 months to 2026-04-20,
+    with 4-6 month gaps. No published release schedule.
+  changelog: https://github.com/RicoSuter/NSwag/releases
+  changelog_artifact: changelog/nswag-changelog.yml
+  coupled_dependency: >-
+    Every NSwag release pins and names an NJsonSchema version; generated-output
+    behaviour tracks that dependency as much as NSwag itself.
+  unified_line: >-
+    All NuGet packages, the npm wrapper and the Chocolatey package ship on one
+    version line and are released together. One exception observed at probe
+    time: NSwag.AssemblyLoader's latest stable is 13.20.0, its 14.x line having
+    only shipped as 14.0.0-preview003.
+roadmap:
+  published: true
+  url: https://github.com/RicoSuter/NSwag/wiki/Roadmap
+  note: >-
+    A wiki page that opens "This roadmap may change." Majors are tracked as
+    GitHub issues — v14 = issue #2181, v13 = issue #1700, v12 = issue #984. The
+    v12 section is the most detailed and still carries unchecked items
+    (per-artifact code generation instead of a single file, real TypeScript
+    integration tests, $ref loading fixes in NJsonSchema).
+  open_items:
+    - Generate artifacts (classes/interfaces) into separate files instead of one file (TS and C#)
+    - Real TypeScript integration tests (marked "help wanted")
+    - Fix $ref loading in NJsonSchema (lazy deserialization for definitions)
+deprecation:
+  policy_url: null
+  policy_published: false
+  note: >-
+    NSwag publishes no standing deprecation policy. Deprecation is communicated
+    two ways instead. (1) Command-level: the wiki marks webapi2openapi and the
+    WebApi generators as "should not be used with ASP.NET Core" in favour of
+    aspnetcore2openapi, and the pre-v12 swagger* command and package names
+    (NSwag.SwaggerGeneration, swaggerToCSharpClient) were superseded by the
+    openapi* names without a formal sunset. (2) Release-level: a bad release is
+    retracted in prose in its own notes rather than unlisted from NuGet.
+  withdrawn_releases:
+    - version: 14.7.0
+      url: https://github.com/RicoSuter/NSwag/releases/tag/v14.7.0
+      note: >-
+        Release notes carry a CAUTION banner — "Do not use this release" —
+        because of an NJsonSchema v11.6.0 nullability regression. The package
+        remains installable from NuGet; the warning exists only in the GitHub
+        release body, so a consumer resolving by version range will not see it.
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  rfc8594_note: Not applicable — NSwag ships no HTTP API of its own.
+support:
+  sla: none
+  sla_note: MIT open-source project maintained by Rico Suter and contributors; no support commitment is published.
+  channels:
+    - {name: GitHub Issues, url: 'https://github.com/RicoSuter/NSwag/issues'}
+    - {name: Discord, url: 'https://discord.gg/BxQNy25WF6'}
+    - {name: Stack Overflow, url: 'https://stackoverflow.com/questions/tagged/nswag'}
+  contributing: https://github.com/RicoSuter/NSwag/blob/master/CONTRIBUTING.md
+  commercial: >-
+    Paid consulting and support are available directly from the maintainer
+    (https://rsuter.com); sponsorship runs through GitHub Sponsors
+    (https://github.com/sponsors/RicoSuter) and Open Collective
+    (https://opencollective.com/nswag).
+  issue_backlog_note: >-
+    2,051 open issues at probe time against 7,353 stars — a single-maintainer
+    project carrying a large backlog.
+status_page:
+  published: false
+  note: >-
+    No status page exists and none is expected: NSwag runs on the consumer's own
+    build machine. The nearest operational signal is the GitHub Actions build
+    badge on the repository README
+    (https://github.com/RicoSuter/NSwag/actions/workflows/build.yml).
+domain_health:
+  nswag_org: >-
+    The project's canonical homepage, NSwag.org — still the `homepage` field on
+    the GitHub repository and the URL printed in every NuGet package — no longer
+    serves the site. On 2026-08-06 https://nswag.org/ timed out on TLS and
+    http://nswag.org/ returned 403 Forbidden from a parked host at
+    domaindiscount24 nameservers. The live documentation is the GitHub wiki. See
+    security/nswag-domain-security.yml.

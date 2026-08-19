@@ -1,0 +1,93 @@
+generated: '2026-08-06'
+method: searched
+source: https://github.com/RicoSuter/NSwag/wiki/CommandLine
+description: >-
+  The nswag command-line surface, captured from the project's own CommandLine
+  wiki page on 2026-08-06. For NSwag the CLI is a primary product surface rather
+  than a companion to a hosted API — there is no NSwag service to call. The CLI
+  drives two directions of the toolchain: .NET assemblies/controllers to
+  OpenAPI, and OpenAPI/JSON Schema to C# or TypeScript client and controller
+  code. In practice most usage is indirect: the recommended entry point is a
+  JSON configuration document (nswag.json / *.nswag) executed with `nswag run`,
+  authored either by hand or in the NSwagStudio GUI, and commonly invoked from
+  an MSBuild target. Distribution packages are catalogued in
+  packages/nswag-packages.yml.
+docs: https://github.com/RicoSuter/NSwag/wiki/CommandLine
+config_document_docs: https://github.com/RicoSuter/NSwag/wiki/NSwag-Configuration-Document
+repo: https://github.com/RicoSuter/NSwag
+binary_names:
+  - nswag.exe          # .NET Framework 4.6+ / Windows, and the Chocolatey + MSI installs
+  - dotnet-nswag.dll   # .NET Core / cross-platform
+  - nswag              # npm wrapper and .NET global tool
+install:
+  dotnet_global_tool: dotnet tool install --global NSwag.ConsoleCore
+  npm: npm install nswag -g
+  chocolatey: choco install nswagstudio
+  msbuild_package: dotnet add package NSwag.MSBuild
+  msi: https://github.com/RicoSuter/NSwag/releases     # NSwagStudio.msi, also registers nswag.exe on PATH
+  zip: https://github.com/RicoSuter/NSwag/releases     # NSwag.zip command line tools
+runtime_requirement: >-
+  .NET Framework 4.6+ for nswag.exe, or a .NET Core / .NET runtime for
+  dotnet-nswag. The npm package detects the installed framework/OS platform and
+  picks the matching binary. Assembly-loading rules for .NET Core targets are
+  documented separately at
+  https://github.com/RicoSuter/NSwag/wiki/Assembly-loading#net-core
+commands:
+  configuration:
+    - {name: new, description: "Create a new nswag.json configuration document in the current directory."}
+    - {name: run, description: "Execute an .nswag / nswag.json configuration document. With no argument, runs every *.nswag and nswag.json in the current directory. This is the recommended entry point."}
+  openapi_generation:
+    - {name: aspnetcore2openapi, description: "Generate an OpenAPI/Swagger specification from an ASP.NET Core project or assembly. See AspNetCoreToOpenApiCommand.", docs: 'https://github.com/RicoSuter/NSwag/wiki/AspNetCoreToOpenApiCommand'}
+    - {name: webapi2openapi, description: "Generate an OpenAPI/Swagger specification from controllers in a classic ASP.NET Web API assembly. Documented as deprecated for ASP.NET Core projects — use aspnetcore2openapi there.", docs: 'https://github.com/RicoSuter/NSwag/wiki/WebApiToOpenApiCommand', deprecated_for: 'ASP.NET Core'}
+    - {name: types2openapi, description: "Generate an OpenAPI specification containing only the given .NET types from an assembly. Also documented in older material as types2swagger.", docs: 'https://github.com/RicoSuter/NSwag/wiki/TypesToOpenApiCommand'}
+  code_generation:
+    - {name: openapi2csclient, description: "Generate a C# client from an OpenAPI specification (/input, /classname, /namespace, /output).", docs: 'https://github.com/RicoSuter/NSwag/wiki/CSharpClientGenerator'}
+    - {name: openapi2cscontroller, description: "Generate ASP.NET / ASP.NET Core Web API controllers from an OpenAPI specification (contract-first).", docs: 'https://github.com/RicoSuter/NSwag/wiki/CSharpControllerGenerator'}
+    - {name: openapi2tsclient, description: "Generate a TypeScript client from an OpenAPI specification (/input, /output).", docs: 'https://github.com/RicoSuter/NSwag/wiki/TypeScriptClientGenerator'}
+  json_schema:
+    - {name: jsonschema2csclient, description: "Generate C# classes from a JSON Schema document (/input, /output)."}
+    - {name: jsonschema2tsclient, description: "Generate TypeScript interfaces from a JSON Schema document (/input, /output)."}
+  meta:
+    - {name: help, description: "Run nswag.exe with no parameters and enter `help` to list every available command and parameter."}
+input_handling: >-
+  Every "input" parameter accepts a file path, a URL, or raw JSON data. Code
+  generators only execute when the corresponding `output` path is set in the
+  configuration document.
+variables:
+  description: >-
+    Configuration documents support $(Variable) substitution. Defaults are set
+    with the document's `defaultVariables` property and overridden on the
+    command line.
+  syntax: nswag run /variables:Configuration=Release,SecondVariable=true
+  msbuild_example: <Exec Command="$(NSwagExe_Core20) run nswag.json /variables:Configuration=$(Configuration)" />
+key_flows:
+  - name: Generate an OpenAPI document from an ASP.NET Core app
+    steps:
+      - nswag aspnetcore2openapi /project:MyApi.csproj /output:openapi.json
+    docs: https://github.com/RicoSuter/NSwag/wiki/AspNetCoreToOpenApiCommand
+  - name: Generate a TypeScript client from a spec
+    steps:
+      - nswag openapi2tsclient /input:MyWebService.json /output:MyModule.ts
+    docs: https://github.com/RicoSuter/NSwag/wiki/TypeScriptClientGenerator
+  - name: Generate a C# client from a spec
+    steps:
+      - nswag openapi2csclient /input:MyWebService.json /classname:MyServiceClient /namespace:MyNamespace /output:MyServiceClient.cs
+    docs: https://github.com/RicoSuter/NSwag/wiki/CSharpClientGenerator
+  - name: Reproducible generation from a config document
+    steps:
+      - nswag new
+      - "# edit nswag.json, or author it in NSwagStudio"
+      - nswag run nswag.json
+    docs: https://github.com/RicoSuter/NSwag/wiki/NSwag-Configuration-Document
+  - name: Wire generation into the build
+    steps:
+      - dotnet add package NSwag.MSBuild
+      - "# add an <Exec Command=\"$(NSwagExe_Net80) run nswag.json\" /> target"
+    docs: https://github.com/RicoSuter/NSwag/wiki/NSwag.MSBuild
+gui:
+  name: NSwagStudio
+  platform: Windows desktop
+  docs: https://github.com/RicoSuter/NSwag/wiki/NSwagStudio
+  note: >-
+    Authors and executes the same nswag.json configuration documents the CLI
+    consumes; installing it also registers nswag.exe on PATH.

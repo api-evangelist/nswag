@@ -1,0 +1,69 @@
+generated: '2026-08-06'
+method: probed
+source: 'dig + TLS/HTTP probe, 2026-08-06'
+description: >-
+  Domain security posture for the hosts NSwag is published from. The mechanical
+  probe (0-working/probe-domain-security.py) returned "no-hosts" for this repo
+  because every URL in apis.yml points at github.com, which the probe excludes
+  as a platform host rather than a provider host. The probe below was therefore
+  run by hand against nswag.org — the domain still declared as the project's
+  homepage on the GitHub repository and printed in every published NuGet package
+  — and the finding is that it no longer serves the project. Absence of records
+  here is real recorded data, not a failed probe.
+hosts:
+  - host: nswag.org
+    https: false
+    https_error: 'TLS handshake timed out (443, 8s)'
+    http_status: 403
+    http_note: >-
+      http://nswag.org/ returns 403 Forbidden with a text/html body and
+      Cache-Control no-cache — a parked/denied host, not the project site.
+    hsts: null
+    a_records: [5.22.145.121, 5.22.145.16]
+    resolved: true
+    serving_project: false
+  - host: www.nswag.org
+    https: false
+    https_error: 'TLS handshake timed out (443, 8s)'
+    hsts: null
+    serving_project: false
+  - host: github.com
+    probed: false
+    note: >-
+      Platform host. NSwag's documentation (wiki), source, releases and issue
+      tracker are all served by GitHub; GitHub's own TLS/HSTS/DNS posture is
+      GitHub's, not NSwag's, and is deliberately not credited or debited here.
+domains:
+  - domain: nswag.org
+    dnssec: false
+    dnssec_evidence: 'dig DNSKEY nswag.org returned no records'
+    caa: []
+    caa_evidence: 'dig CAA nswag.org returned no records'
+    spf: false
+    spf_evidence: 'dig TXT nswag.org returned no records'
+    dmarc: false
+    dmarc_policy: null
+    dmarc_evidence: 'dig TXT _dmarc.nswag.org returned no records'
+    nameservers: [ns1.domaindiscount24.net., ns2.domaindiscount24.net., ns3.domaindiscount24.net.]
+findings:
+  - severity: high
+    id: canonical-homepage-dead
+    detail: >-
+      NSwag.org is still the `homepage` field on github.com/RicoSuter/NSwag and
+      the project URL carried by every NuGet package, but it does not respond
+      over HTTPS and returns 403 over HTTP. Anyone following the link from a
+      package manager lands nowhere. The live documentation is the GitHub wiki
+      (https://github.com/RicoSuter/NSwag/wiki), which is what this catalog
+      records as Documentation.
+    remedy: >-
+      Either restore nswag.org or change the repository homepage and the package
+      PackageProjectUrl to the GitHub wiki, so the link a consumer follows from
+      NuGet resolves.
+  - severity: medium
+    id: no-email-authentication
+    detail: >-
+      nswag.org publishes neither SPF nor DMARC, so the domain is trivially
+      spoofable in mail claiming to come from the project.
+  - severity: low
+    id: no-dnssec-no-caa
+    detail: 'No DNSKEY and no CAA records on nswag.org.'

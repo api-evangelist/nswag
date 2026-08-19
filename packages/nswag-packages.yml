@@ -1,0 +1,264 @@
+generated: '2026-08-06'
+method: searched
+source: https://github.com/RicoSuter/NSwag#nuget-packages
+description: >-
+  First-party distributions of the NSwag toolchain, verified live against each
+  public registry on 2026-08-06. NSwag ships no hosted API of its own, so these
+  packages are the product: a set of .NET libraries (specification model,
+  document generation, code generation, ASP.NET/OWIN middleware), an MSBuild
+  targets package, a .NET global tool, an npm wrapper for the CLI, and a
+  Chocolatey package for the NSwagStudio Windows GUI. Every package below is
+  authored by Rico Suter and published from the RicoSuter/NSwag repository under
+  MIT. Version numbers are the latest stable at probe time; total download
+  counts come from the NuGet search index on the same date. Third-party packages
+  that carry an "NSwag." prefix but are published by other authors
+  (NSwag.Examples, NSwag.AspNetCore.Themes, NSwag.SwaggerGeneration.AzureFunctionsV2,
+  NSwag.CodeGeneration.ActionFramework) are deliberately excluded — they are
+  community add-ons, not first-party.
+registries_probed:
+  - {registry: nuget, url: 'https://www.nuget.org/packages?q=NSwag', status: 200}
+  - {registry: npm, url: 'https://registry.npmjs.org/nswag', status: 200}
+  - {registry: chocolatey, url: 'https://community.chocolatey.org/packages/nswagstudio', status: 200}
+current_release: 14.7.1
+packages:
+  # --- Specification model -------------------------------------------------
+  - language: csharp
+    registry: nuget
+    name: NSwag.Core
+    url: https://www.nuget.org/packages/NSwag.Core
+    install: dotnet add package NSwag.Core
+    version: 14.7.1
+    downloads: 201388818
+    license: MIT
+    official: true
+    group: specification
+    note: OpenAPI/Swagger reader and writer classes (OpenApiDocument).
+  - language: csharp
+    registry: nuget
+    name: NSwag.Core.Yaml
+    url: https://www.nuget.org/packages/NSwag.Core.Yaml
+    install: dotnet add package NSwag.Core.Yaml
+    version: 14.7.1
+    downloads: 111721578
+    license: MIT
+    official: true
+    group: specification
+    note: Extensions to read and write YAML OpenAPI specifications.
+  - language: csharp
+    registry: nuget
+    name: NSwag.Annotations
+    url: https://www.nuget.org/packages/NSwag.Annotations
+    install: dotnet add package NSwag.Annotations
+    version: 14.7.1
+    downloads: 146462059
+    license: MIT
+    official: true
+    group: specification
+    note: Attributes to decorate Web API controllers and steer OpenAPI generation.
+
+  # --- OpenAPI generation --------------------------------------------------
+  - language: csharp
+    registry: nuget
+    name: NSwag.Generation
+    url: https://www.nuget.org/packages/NSwag.Generation
+    install: dotnet add package NSwag.Generation
+    version: 14.7.1
+    downloads: 136159950
+    license: MIT
+    official: true
+    group: generation
+    note: Base classes to generate OpenAPI specifications.
+  - language: csharp
+    registry: nuget
+    name: NSwag.Generation.AspNetCore
+    url: https://www.nuget.org/packages/NSwag.Generation.AspNetCore
+    install: dotnet add package NSwag.Generation.AspNetCore
+    version: 14.7.1
+    downloads: 126315288
+    license: MIT
+    official: true
+    group: generation
+    note: Generates OpenAPI from ASP.NET Core MVC controllers via the ApiExplorer.
+  - language: csharp
+    registry: nuget
+    name: NSwag.Generation.WebApi
+    url: https://www.nuget.org/packages/NSwag.Generation.WebApi
+    install: dotnet add package NSwag.Generation.WebApi
+    version: 14.7.1
+    downloads: 12021636
+    license: MIT
+    official: true
+    group: generation
+    note: Generates OpenAPI from classic ASP.NET Web API controllers.
+
+  # --- Code generation -----------------------------------------------------
+  - language: csharp
+    registry: nuget
+    name: NSwag.CodeGeneration
+    url: https://www.nuget.org/packages/NSwag.CodeGeneration
+    install: dotnet add package NSwag.CodeGeneration
+    version: 14.7.1
+    downloads: 35696299
+    license: MIT
+    official: true
+    group: codegen
+    note: Base classes to generate clients from OpenAPI specifications.
+  - language: csharp
+    registry: nuget
+    name: NSwag.CodeGeneration.CSharp
+    url: https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp
+    install: dotnet add package NSwag.CodeGeneration.CSharp
+    version: 14.7.1
+    downloads: 20026010
+    license: MIT
+    official: true
+    group: codegen
+    note: C# client and controller generators (CSharpClientGenerator, CSharpControllerGenerator).
+  - language: csharp
+    registry: nuget
+    name: NSwag.CodeGeneration.TypeScript
+    url: https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript
+    install: dotnet add package NSwag.CodeGeneration.TypeScript
+    version: 14.7.1
+    downloads: 9896679
+    license: MIT
+    official: true
+    group: codegen
+    note: >-
+      TypeScript client generator; templates for Fetch, Angular, AngularJS,
+      Aurelia, Axios (preview), JQueryCallbacks and JQueryPromises.
+
+  # --- ASP.NET / OWIN middleware ------------------------------------------
+  - language: csharp
+    registry: nuget
+    name: NSwag.AspNetCore
+    url: https://www.nuget.org/packages/NSwag.AspNetCore
+    install: dotnet add package NSwag.AspNetCore
+    version: 14.7.1
+    downloads: 133088244
+    license: MIT
+    official: true
+    group: middleware
+    note: >-
+      ASP.NET Core middleware serving the generated OpenAPI document plus
+      Swagger UI and ReDoc (AddOpenApiDocument / UseOpenApi / UseSwaggerUi / UseReDoc).
+  - language: csharp
+    registry: nuget
+    name: NSwag.AspNet.Owin
+    url: https://www.nuget.org/packages/NSwag.AspNet.Owin
+    install: dotnet add package NSwag.AspNet.Owin
+    version: 14.7.1
+    downloads: 6075813
+    license: MIT
+    official: true
+    group: middleware
+    note: OWIN middleware for serving OpenAPI specifications and Swagger UI.
+  - language: csharp
+    registry: nuget
+    name: NSwag.AspNet.WebApi
+    url: https://www.nuget.org/packages/NSwag.AspNet.WebApi
+    install: dotnet add package NSwag.AspNet.WebApi
+    version: 14.7.1
+    downloads: 2099787
+    license: MIT
+    official: true
+    group: middleware
+    note: ASP.NET Web API filter that serializes exceptions (JsonExceptionFilterAttribute).
+
+  # --- Tooling / build integration ----------------------------------------
+  - language: csharp
+    registry: nuget
+    name: NSwag.MSBuild
+    url: https://www.nuget.org/packages/NSwag.MSBuild
+    install: dotnet add package NSwag.MSBuild
+    version: 14.7.1
+    downloads: 98054559
+    license: MIT
+    official: true
+    group: tooling
+    note: Adds a .targets file so the NSwag CLI can run inside an MSBuild target.
+  - language: csharp
+    registry: nuget
+    name: NSwag.ApiDescription.Client
+    url: https://www.nuget.org/packages/NSwag.ApiDescription.Client
+    install: dotnet add package NSwag.ApiDescription.Client
+    version: 14.7.1
+    downloads: 41259215
+    license: MIT
+    official: true
+    group: tooling
+    note: >-
+      Backs the Visual Studio "Connected Services / OpenAPI reference"
+      experience via OpenApiReference items in the .csproj.
+  - language: csharp
+    registry: nuget
+    name: NSwag.Commands
+    url: https://www.nuget.org/packages/NSwag.Commands
+    install: dotnet add package NSwag.Commands
+    version: 14.7.1
+    downloads: 2124513
+    license: MIT
+    official: true
+    group: tooling
+    note: Command implementations shared by the CLI and NSwagStudio.
+  - language: csharp
+    registry: nuget
+    name: NSwag.ConsoleCore
+    url: https://www.nuget.org/packages/NSwag.ConsoleCore
+    install: dotnet tool install --global NSwag.ConsoleCore
+    version: 14.7.1
+    downloads: 8462541
+    license: MIT
+    official: true
+    group: cli
+    note: The .NET global tool / dotnet-nswag CLI. Command surface in cli/nswag-cli.yml.
+  - language: csharp
+    registry: nuget
+    name: NSwag.AssemblyLoader
+    url: https://www.nuget.org/packages/NSwag.AssemblyLoader
+    install: dotnet add package NSwag.AssemblyLoader
+    version: 13.20.0
+    version_note: >-
+      Latest STABLE is 13.20.0; the 14.x line for this package has only shipped
+      as prerelease (14.0.0-preview003) at probe time.
+    downloads: 1731990
+    license: MIT
+    official: true
+    group: tooling
+    note: Loads assemblies in an isolated context to generate specs from Web API controllers.
+  - language: javascript
+    registry: npm
+    name: nswag
+    url: https://www.npmjs.com/package/nswag
+    install: npm install nswag -g
+    version: 14.7.1
+    downloads_last_month: 316189
+    license: MIT
+    official: true
+    group: cli
+    note: >-
+      npm wrapper that shells out to the .NET / .NET Core CLI binaries
+      (bin/nswag.js); the package selects the runtime for the installed platform.
+  - language: windows
+    registry: chocolatey
+    name: nswagstudio
+    url: https://community.chocolatey.org/packages/nswagstudio
+    install: choco install nswagstudio
+    version: 14.7.1
+    license: MIT
+    official: true
+    group: gui
+    note: >-
+      Installs the NSwagStudio Windows desktop GUI plus nswag.exe, registers the
+      .nswag file extension and puts nswag.exe on PATH. An MSI installer
+      (NSwagStudio.msi) is also attached to each GitHub release.
+distribution_notes:
+  ci_feed: https://www.myget.org/F/nswag/api/v3/index.json
+  releases: https://github.com/RicoSuter/NSwag/releases
+  release_assets:
+    - NSwagStudio.msi
+    - NSwag.zip
+  upstream_dependency: >-
+    NSwag depends on NJsonSchema (https://github.com/RicoSuter/NJsonSchema) for
+    JSON Schema handling and C#/TypeScript type generation; every NSwag release
+    pins a specific NJsonSchema version and names it in the release title.

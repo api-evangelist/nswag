@@ -1,0 +1,35 @@
+generated: '2026-08-06'
+method: probed
+source: 'live probe, 2026-08-06'
+description: >-
+  Well-known discovery probe for NSwag. NSwag operates no API host, so the only
+  candidate host is nswag.org, the domain the GitHub repository still declares as
+  its homepage — and that host no longer answers (TLS times out; HTTP returns
+  403 from a parked server). Every path below therefore missed, and no documents
+  were captured. Recorded so the miss is auditable rather than silent: this is an
+  honest zero, not an unrun probe. No `WellKnown` or `SecurityTxt` pointer is
+  wired into apis.yml, because nothing was found.
+host: https://nswag.org
+host_reachable: false
+documents:
+  - {path: /.well-known/security.txt, status: 000, note: 'connection timed out (no TLS on 443)'}
+  - {path: /.well-known/openid-configuration, status: 000, note: 'connection timed out (no TLS on 443)'}
+  - {path: /.well-known/oauth-authorization-server, status: 000, note: 'connection timed out (no TLS on 443)'}
+  - {path: /.well-known/api-catalog, status: 000, note: 'connection timed out (no TLS on 443)'}
+  - {path: /.well-known/ai-plugin.json, status: 000, note: 'connection timed out (no TLS on 443)'}
+  - {path: /.well-known/agent-card.json, status: 000, note: 'connection timed out (no TLS on 443)'}
+  - {path: /.well-known/agent.json, status: 000, note: 'connection timed out (no TLS on 443)'}
+  - {path: /llms.txt, status: 000, note: 'connection timed out (no TLS on 443)'}
+excluded_hosts:
+  - host: github.com
+    reason: >-
+      Platform host. github.com/.well-known/security.txt returns 200, but that
+      document is GitHub's — it names GitHub's HackerOne program and GitHub's
+      security team. Attributing it to NSwag would be false credit, so it is not
+      captured and no SecurityTxt pointer is emitted.
+provider_gap: >-
+  NSwag publishes no /.well-known/ discovery surface of any kind, and no
+  SECURITY.md in the repository (github.com/RicoSuter/NSwag/security/policy
+  returns "No security policy detected"). For a toolchain with 201M+ NuGet
+  downloads on NSwag.Core alone, the absence of any documented
+  vulnerability-reporting path is the most consequential gap in this profile.

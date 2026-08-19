@@ -1,0 +1,112 @@
+generated: '2026-08-06'
+method: searched
+source: https://github.com/RicoSuter/NSwag/wiki/OpenAPI-3-support
+description: >-
+  Cross-cutting standards conformance for NSwag. One distinction governs every
+  row below and must not be collapsed: NSwag is a TOOL that reads and writes
+  specification documents, and it operates no API of its own. So every assertion
+  here is about what the toolchain consumes and emits — there is no service
+  posture to assess, and the transport/security standards a hosted API would be
+  judged on (OAuth 2.0, OIDC, RFC 9457, rate-limit signalling) are simply not
+  applicable rather than failed. The one caveat NSwag documents about itself is
+  material: its internal model is Swagger 2.0-shaped, with OpenAPI 3.0
+  properties mapped onto it, and the project warns that converting a document to
+  OpenAPI 3.0.0 on serialization "is not able to convert a document completely".
+standards:
+  - id: swagger-2.0
+    conforms: true
+    scope: tool
+    evidence: >-
+      "The NSwag serializer supports Swagger 2.0 and OpenApi 3.0." Swagger 2.0
+      is the native shape of the internal document model.
+      https://github.com/RicoSuter/NSwag/wiki/OpenAPI-3-support
+  - id: openapi-3.0
+    conforms: true
+    scope: tool
+    evidence: >-
+      Generation is enabled with settings.SchemaType = JsonSchemaType.OpenApi3,
+      AddOpenApiDocument() in ASP.NET Core, or /outputType:OpenApi3 on the CLI.
+      Implemented by mapping Swagger 2.0 properties onto the OpenAPI 3.0 model.
+      https://github.com/RicoSuter/NSwag/wiki/OpenAPI-3-support
+  - id: openapi-3.0-round-trip
+    conforms: partial
+    scope: tool
+    evidence: >-
+      The project's own wiki flags document.ToJson(JsonSchemaType.OpenApi3) as
+      "not recommended as it is not able to convert a document completely" and
+      says the CLI /outputType:OpenApi3 path "might be removed because it might
+      be too hard to maintain it". Depending on the serialization schema type,
+      some properties are ignored or serialized differently.
+  - id: openapi-3.1
+    conforms: false
+    scope: tool
+    evidence: >-
+      No OpenAPI 3.1 support is claimed anywhere in the README, the wiki, or the
+      release notes read on 2026-08-06. The supported set is stated throughout as
+      "Swagger 2.0 and OpenAPI 3.0".
+  - id: json-schema
+    conforms: true
+    scope: tool
+    evidence: >-
+      JSON Schema handling and C#/TypeScript type generation are delegated to
+      NJsonSchema (https://github.com/RicoSuter/NJsonSchema), pinned per release.
+      The CLI exposes jsonschema2csclient and jsonschema2tsclient to generate
+      directly from a JSON Schema document.
+  - id: openapi-yaml
+    conforms: true
+    scope: tool
+    evidence: >-
+      The NSwag.Core.Yaml package adds OpenApiYamlDocument.FromYamlAsync /
+      ToYaml; the CLI and NSwagStudio accept YAML input.
+      https://github.com/RicoSuter/NSwag/wiki/YAML-support
+  - id: swagger-ui
+    conforms: true
+    scope: tool
+    evidence: >-
+      NSwag.AspNetCore and NSwag.AspNet.Owin serve the swagger-api/swagger-ui
+      renderer via app.UseSwaggerUi().
+  - id: redoc
+    conforms: true
+    scope: tool
+    evidence: NSwag.AspNetCore serves ReDoc via app.UseReDoc().
+  - id: oauth2
+    conforms: not-applicable
+    scope: api
+    evidence: >-
+      NSwag operates no API. It can read and emit OpenAPI securitySchemes of any
+      type, including oauth2, but asserts no OAuth posture of its own.
+  - id: oidc
+    conforms: not-applicable
+    scope: api
+  - id: rfc9457-problem-details
+    conforms: not-applicable
+    scope: api
+    evidence: >-
+      No HTTP surface. The nearest analogue is JsonExceptionFilterAttribute in
+      NSwag.AspNet.WebApi, which serializes exceptions in the CONSUMER's API, not
+      NSwag's. https://github.com/RicoSuter/NSwag/wiki/JsonExceptionFilterAttribute
+  - id: semver
+    conforms: true
+    scope: project
+    evidence: 'Releases tagged vX.Y.Z across NuGet, npm and Chocolatey on one version line.'
+  - id: spdx-mit
+    conforms: true
+    scope: project
+    evidence: 'MIT, declared on the GitHub repository and in every published package. https://github.com/RicoSuter/NSwag/blob/master/LICENSE.md'
+compliance_program:
+  published: false
+  note: >-
+    No SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP claim and no trust centre —
+    expected for a single-maintainer OSS toolchain with no hosted service. No
+    `Compliance` pointer is emitted.
+security_policy:
+  published: false
+  probed: https://github.com/RicoSuter/NSwag/security/policy
+  probed_status: 200
+  note: >-
+    GitHub's security policy page for the repository returns "No security policy
+    detected — This project has not set up a SECURITY.md file yet." There is no
+    SECURITY.md at the repo root and no /.well-known/security.txt (nswag.org is
+    unreachable). A toolchain this widely deployed — NSwag.Core alone has 201M
+    NuGet downloads — publishing no vulnerability-reporting path is the single
+    clearest gap in this profile, and it is the provider's to close.
