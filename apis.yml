@@ -33,6 +33,18 @@ tags:
   - C#
   - Code Generation
   - Developer Tools
+  - JSON-Schema
+  - Open-Source
+  - OpenAPI
+  - SDK
+  - Swagger
+  - TypeScript
+tags_raw:
+  - .NET
+  - ASP.NET Core
+  - C#
+  - Code Generation
+  - Developer Tools
   - JSON Schema
   - Open Source
   - OpenAPI
@@ -55,6 +67,12 @@ apis:
       consumer's own machine or build agent.
     humanURL: https://github.com/RicoSuter/NSwag
     tags:
+      - .NET
+      - Code Generation
+      - OpenAPI
+      - SDK
+      - TypeScript
+    tags_raw:
       - .NET
       - Code Generation
       - OpenAPI
