@@ -15,15 +15,20 @@ description: >-
   configuration document the CLI runs.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: self-hosted
+  license: MIT
+  license_evidence:
+    repo: ricosuter/nswag
+    spdx: MIT
+    stars: 7366
+  open_source: true
   commercial: false
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Self-hosted open source · you run it yourself
+  confidence: medium
   source:
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -44,12 +49,13 @@ tags:
   - C#
   - Code Generation
   - Developer Tools
-  - JSON-Schema
-  - Open-Source
+  - JSON Schema
+  - Open Source
   - OpenAPI
   - SDK
   - Swagger
   - TypeScript
+  - SDK Generation
 tags_raw:
   - .NET
   - ASP.NET Core
@@ -62,6 +68,9 @@ tags_raw:
   - SDKs
   - Swagger
   - TypeScript
+  - JSON-Schema
+  - Open-Source
+  - SDK Generation
 url: https://raw.githubusercontent.com/api-evangelist/nswag/refs/heads/main/apis.yml
 created: '2026-03-25'
 modified: '2026-08-06'
