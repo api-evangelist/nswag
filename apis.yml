@@ -108,6 +108,12 @@ apis:
       - type: CLI
         url: cli/nswag-cli.yml
 common:
+  - type: Plans
+    url: plans/nswag-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/nswag-rate-limits.yml
+  - type: FinOps
+    url: finops/nswag-finops.yml
   - type: Releases
     url: https://github.com/RicoSuter/NSwag/releases
   - type: ContributionGuide
