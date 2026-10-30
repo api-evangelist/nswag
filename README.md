@@ -1,4 +1,4 @@
-# NSwag (nswag)
+# NSwag
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,47 +64,111 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-NSwag is an open source .NET toolchain for generating C# and TypeScript API clients and Swagger/OpenAPI specifications from ASP.NET controllers and vice versa.
+NSwag is the Swagger/OpenAPI toolchain for .NET, ASP.NET Core and TypeScript, written in C# and maintained by Rico Suter under an MIT licence. It runs the contract in both directions: generating Swagger 2.0 and OpenAPI 3.0 documents from ASP.NET (Core) controllers, Web API assemblies and plain .NET types, and generating C# clients, ASP.NET Web API controllers and TypeScript clients back out of those documents. It combines what Swashbuckle and AutoRest do separately into a single toolchain, which is how it avoids the incompatibility seams between the two and gets better fidelity on inheritance, enums and reference handling via NJsonSchema. NSwag operates no hosted API of its own — it is consumed as NuGet packages, MSBuild targets, an npm-distributed CLI and NSwagStudio, a Windows GUI that authors and executes the same nswag.json configuration document the CLI runs.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/nswag/refs/heads/main/apis.yml)
+**Areas:** .NET · ASP.NET Core · C# · Code Generation · Developer Tools · JSON Schema · Open Source · OpenAPI · SDK · Swagger · TypeScript · SDK Generation
 
-## Scope
+## NSwag on APIs.io
 
-- **Type:** Index
-- **Position:** Tooling
-- **Access:** Open Source
+Everything profiled for NSwag is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nswag/](https://apis.io/providers/nswag/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- .NET
-- Code Generation
-- OpenAPI
-- SDKs
-- TypeScript
+- [NSwag](https://apis.io/apis/nswag/nswag/) — NSwag is an open source .NET toolchain for generating C# and TypeScript API clients and Swagger/OpenAPI specifications from ASP.NET controllers and vice…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-25
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### JSON Schema (1)
 
-### NSwag
-NSwag is an open source .NET toolchain for generating C# and TypeScript API clients and Swagger/OpenAPI specifications from ASP.NET controllers and vice versa.
+The data models the API reads and writes.
 
-- **Human URL:** https://github.com/RicoSuter/NSwag
-- **Documentation:** https://github.com/RicoSuter/NSwag/wiki
-- **Getting Started:** https://github.com/RicoSuter/NSwag/wiki/Getting-Started
-- **GitHub Repository:** https://github.com/RicoSuter/NSwag
+- [Nswag Configuration Document.Schema](https://apis.io/schemas/nswag/nswag-configuration-document.schema/)
 
-## Common Properties
+#### Security (1)
 
-| Property | URL |
-|----------|-----|
-| Website | https://github.com/RicoSuter/NSwag |
-| Documentation | https://github.com/RicoSuter/NSwag/wiki |
-| GitHub Organization | https://github.com/RicoSuter/NSwag |
+Authentication, trust centre, and vulnerability disclosure.
 
-## Maintainers
+- [Nswag Domain Security](https://apis.io/security/nswag/nswag-domain-security/)
 
-- **Kin Lane** - kin@apievangelist.com
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Nswag Plans Pricing](https://apis.io/plans/nswag/nswag-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Nswag Rate Limits](https://apis.io/rate-limits/nswag/nswag-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Nswag Finops](https://apis.io/finops/nswag/nswag-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://github.com/RicoSuter/NSwag)
+- [Documentation](https://github.com/RicoSuter/NSwag/wiki)
+- [Getting started](https://github.com/RicoSuter/NSwag/wiki/Getting-Started)
+- [Support](https://github.com/RicoSuter/NSwag/issues)
+- [GitHub](https://github.com/RicoSuter/NSwag)
+
+## API Evangelist rating
+
+**Kin Score 24.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 7.9 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nswag/](https://apis.io/providers/nswag/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for NSwag: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nswag/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
